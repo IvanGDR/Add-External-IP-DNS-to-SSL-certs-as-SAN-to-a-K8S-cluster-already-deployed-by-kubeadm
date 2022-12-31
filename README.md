@@ -49,7 +49,7 @@ users:
     client-key-data: LSxx..LSxx==
 ```
 
-The error I am reciving is because the current certificate do not recognise the external IP/DNS, so this/these need(s) to be included for this to work.
+The error I am reciving is because the current certificate do not recognise the external IP/DNS (34.290.81.180), so this/these need(s) to be included for this to work.
 
 #### Previous steps:
 
