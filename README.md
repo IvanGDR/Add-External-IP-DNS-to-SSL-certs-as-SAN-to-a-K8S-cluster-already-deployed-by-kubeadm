@@ -1,0 +1,1 @@
+# Add-External-IP-DNS-to-SSL-certs-as-SAN-to-a-K8S-cluster-already-deployed-by-kubeadm
