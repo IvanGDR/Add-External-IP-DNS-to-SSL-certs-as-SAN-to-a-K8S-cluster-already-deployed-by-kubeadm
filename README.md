@@ -386,6 +386,7 @@ $~/.kube > ls -la
 -rw — — — — 1 ivan ivan 136 Jul 10 20:20 config_2
 ```
 
-therefore I am exporting the KUBECONFIG env variable as follows:`$ export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/config_2"`
+therefore I am exporting the KUBECONFIG env variable as follows:
+`$ export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/config_2"`
 
 You may include this in your .bashrc or .zshrc for a permanent change, if so, source the changes and check the contexts again. Happy remote K8S access!!!!!!
