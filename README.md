@@ -294,7 +294,7 @@ Certificate:
                 keyid:03:A0:EC:8B:11:F7:3E:0B:21:3D:7B:66:E0:05:36:2A:EA:C2:2E:C5
 
             X509v3 Subject Alternative Name:
-                DNS:ec2-34-209-81-108.us-west-2.compute.amazonaws.com, DNS:ip-172-31-23-144, DNS:kubernetes, DNS:kubernetes.default, DNS:kubernetes.default.svc, DNS:kubernetes.default.svc.cluster.local, IP Address:10.96.0.1, IP Address:172.31.23.144, IP Address:34.209.81.108
+                DNS:ec2-34-290-81-180.us-west-2.compute.amazonaws.com, DNS:ip-172-31-23-144, DNS:kubernetes, DNS:kubernetes.default, DNS:kubernetes.default.svc, DNS:kubernetes.default.svc.cluster.local, IP Address:10.96.0.1, IP Address:172.31.23.144, IP Address:34.290.81.180
     Signature Algorithm: sha256WithRSAEncryption
          69:16:23:9e:1f:3f:b6:fd:16:0d:af:b3:cc:32:3f:51:0c:0b:
          ...
