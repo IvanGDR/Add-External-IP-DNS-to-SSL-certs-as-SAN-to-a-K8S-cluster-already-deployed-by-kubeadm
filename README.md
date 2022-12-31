@@ -5,7 +5,7 @@ In my case an external IP/DNS was/were not added to the SSL APISERVER certificat
 [kubeadm init \| Kubernetes](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)
 
 
-On one of my previous post about deploying a K8S cluster
+In one of my previous posts about deploying a K8S cluster
 
 [GitHub - IvanGDR/Deploy-K8S-cluster-using-containerd-and-Calico-network-add-on](https://github.com/IvanGDR/Deploy-K8S-cluster-using-containerd-and-Calico-network-add-on)
 
@@ -49,7 +49,7 @@ users:
     client-key-data: LSxx..LSxx==
 ```
 
-The error I am reciving is because the current certificate do not recognise the external IP (34.290.81.180), so this needs to be included for this to work.
+The error I am receiving is because the current certificate does not recognise the external IP (34.290.81.180), so this needs to be included for this to work.
 
 #### Previous steps:
 
@@ -92,13 +92,13 @@ round-trip min/avg/max/stddev = 155.681/156.054/156.432/0.349 ms
 ```
 
 
-In order to be as least intrussive as possible  the generated ConfigMap named `kubeadm-config` located in the kube-system namespace is going to be used.
+In order to be as least intrusive as possible the generated ConfigMap named `kubeadm-config` located in the kube-system namespace is going to be used.
 
 ### Updating API server's certificate
 
-As mentioned the cluster was deployed using kubeadm and the certificate just included the internal IP of the cluster  therefore we can use kubeadm to update the API server's certificates to include the extrenal IP as part of the certificate SAN list. 
+As mentioned the cluster was deployed using kubeadm and the certificate just included the internal IP of the cluster, therefore, we can use kubeadm to update the API server's certificates to include the external IP as part of the certificate SAN list. 
 
-I am saving  a copy of this config file in my home directory using the name `kubeadm.yaml`.
+I am saving a copy of this config file in my home directory using the name `kubeadm.yaml`.
 
 ```
 $ kubectl -n kube-system get configmap kubeadm-config -o jsonpath='{.data.ClusterConfiguration}' > kubeadm.yaml
@@ -128,7 +128,7 @@ networking:
 scheduler: {}
 ```
 
-Above file does not have any additional SANs listed (IPs and/or DNSs). Proceeed  to add the SANs as needed. In my case I am adding a public IP and a public DNS.
+The above file does not have any additional SANs listed (IPs and/or DNSs). Proceed to add the SANs as needed. In my case, I am adding a public IP and a public DNS.
 
 The information for my cluster is this
 ```
@@ -166,7 +166,7 @@ networking:
 scheduler: {}
 ```
 
-At this stage,  move (recommended) or remove the existing API server certificate and key because if kubeadm find these files it won't generate new ones..
+At this stage, move (recommended) or remove the existing API server certificate and key because if kubeadm finds these files it won't generate new ones..
 
 These are two files, `apiserver.crt` and `apiserver.key` and are located here:
 ```
@@ -227,7 +227,7 @@ bdfb4d176551a       7 weeks ago         Ready               kube-scheduler-ip-17
 612f2feafc5bf       4 months ago        Ready               calico-node-92c7l                          kube-system         0                   (default)
 ```
 
-In my case the pod id is the firts on the list `209a76a9aac39`
+In my case, the pod id is the firt on the list `209a76a9aac39`
 
 b) stop APISERVER pod
 
@@ -252,13 +252,13 @@ Removed sandbox 209a76a9aac39
 ```
 
 
-The Kubelet will automatically restart the container, which will pick up the new certificates. Ignore the warn and error shown.
+The Kubelet will automatically restart the container, which will pick up the new certificates. Ignore the warns and errors shown.
 
 
 ### Additional steps
 
 
-##### Verify certificate and check if SAN have been added
+##### Verify the certificate and check if SANs have been added
 
 ```
 $ openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text
@@ -307,7 +307,7 @@ AxMKa3ViZXJuZXRlczAeFw0yMjA4MjIwODM2NTJaFw0yMzEyMjgxMDIxMDZaMBkx
 -----END CERTIFICATE-----
 ```
 
-##### Refresh /.kube/config file for local and remotre kubectl access (in master node):
+##### Refresh /.kube/config file for local and remote kubectl access (in master node):
 ```
 $ sudo mv $HOME/.kube/config $HOME/.kube/backup_config_old
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -316,9 +316,9 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ##### Move the ./kube/config file to your local machine 
 
-The new config file once moved and copied to  your local machine, needs to be placed in ./kube directory, usually in your home path. Also this needs to be slighly edited to point to the external IP of your kubernetes cluster.
+The new config file once moved and copied to your local machine, needs to be placed in the .kube directory, usually in your home path. Also, this needs to be slightly edited to point to the external IP of your Kubernetes cluster.
 
-This is the .kube/config file in my k8s controlplane (note it is using the internal IP, which is fine):
+This is the .kube/config file in my k8s control-plane (note it is using the internal IP, which is fine):
 
 ```
 ~/.kube$ cat config
@@ -377,7 +377,7 @@ At this stage you should access your remote K8S cluster, otherwise check the con
 `$ kubectl config get-contexts`
 
 
-As I already have another cluster being managed by my local kubectl and this already is using a configuration file named .kube/config, for this new configuration file I am using this name kube/config_2 so my current files are then:
+As I already have another cluster being managed by my local kubectl and this already is using a configuration file named .kube/config, for this new configuration file I am using this name .kube/config_2 so my current files are then:
 ```
 $~/.kube > ls -la
 ```
