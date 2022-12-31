@@ -18,7 +18,7 @@ $ sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.23.
 Therefore, just in case this is needed, I am sharing this cookbook to sort that issue out.
 
 
-The aim is to  be able to access my remote K8S cluster from my local machine and I am receiving the following error:
+The aim is to  be able to access my remote K8S cluster from my local machine as I am receiving the following error:
 
 ```
 Unable to connect to the server: x509: certificate is valid for <IPs and/or DNSs list>. , not <IPs and/or DNSs list>
