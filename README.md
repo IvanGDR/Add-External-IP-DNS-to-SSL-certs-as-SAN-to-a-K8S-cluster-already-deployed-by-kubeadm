@@ -316,7 +316,7 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ##### Move the ./kube/config file to your local machine 
 
-The new config file once moved and copied to  to your new local machine, needs to be placed in ./kube directory, usually in your home path. Also this needs to be slighly edited to point to the external IP of your kubernetes cluster.
+The new config file once moved and copied to  your local machine, needs to be placed in ./kube directory, usually in your home path. Also this needs to be slighly edited to point to the external IP of your kubernetes cluster.
 
 This is the .kube/config file in my k8s controlplane (note it is using the internal IP, which is fine):
 
@@ -345,7 +345,7 @@ users:
     client-key-data: LS0...LS0tCg==
 ```
 
-This is the config file in my local terminal (note the server  IP manually changed to `34.290.81.180`):
+This is the same file as above in my local machine but pointing to the public IP address (note the server IP manually changed to `34.290.81.180`):
 ```
 apiVersion: v1
 clusters:
